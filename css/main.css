@@ -1,0 +1,106 @@
+/* reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* estilos del contenedor */
+
+.contenedor {
+	background-color: tomato;
+	/* propiedades de grid */
+	display: grid;
+
+	/* propiedad columnas */
+
+	grid-template-columns: 300px 150px;
+	/* si quiero que use el 100% del ancho del navegador 
+    grid-template-columns: 30% 60%;  el gap cuidado pq genera mas espacio y menos %      1FR 2FR etc es para ocupar fraccion de espacio     (repeat) 2coluimnas, 1 fr para mas facil */
+
+	/* propiedad filas */
+
+	grid-template-rows: 200px 350px;
+
+	/* propiedad para los espacios */
+
+	row-gap: 20px;
+	column-gap: 10px;
+}
+
+/* estilos del contenido (hijos) */
+
+.hijos {
+	background-color: wheat;
+}
+
+/* estilos de ejemplo dos */
+
+.ejemplo {
+	border: 5px solid black;
+	height: 500px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+
+	/* alinear el contenido */
+	justify-items: center;
+	align-items: center;
+}
+
+.cuatro {
+	justify-self: end; /* es para mover una sola foto y decirle que hacer, tenemos que usar grid si o si en el padre */
+	align-self: start;
+}
+
+/* estilos de ejemplo dos */
+
+.container {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 0.5fr 1fr 2fr 0.5fr;
+
+	/* podemos estructurar por areas */
+	grid-template-areas:
+		"header header"
+		"main section-uno"
+		"section-dos section-uno"
+		"footer footer";
+
+	gap: 10px;
+}
+
+header {
+	background-color: tomato;
+	grid-area: header;
+}
+
+header nav ul {
+	height: 100px;
+	display: flex;
+	list-style: none;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+main {
+	background-color: green;
+	grid-area: main;
+}
+
+.section-uno {
+	background-color: red;
+	grid-area: section-uno;
+}
+
+.section-dos {
+	background-color: violet;
+	grid-area: section-dos;
+}
+
+footer {
+	background-color: brown;
+	grid-area: footer;
+}
